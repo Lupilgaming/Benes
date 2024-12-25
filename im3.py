@@ -2,7 +2,7 @@ import graphviz
 from cb1 import *
 
 def creategraph(d, count, matrix):
-  f = graphviz.Digraph('finite_state_machine', filename='fsm.gv', engine = "fdp", graph_attr={'splines':'false'})
+  f = graphviz.Digraph('finite_state_machine', filename='fsm.gv', engine = "dot", graph_attr={'splines':'false'})
   f.attr(rankdir='LR')
   f.attr('node', shape='box')
   COL = matrix.shape[1]
@@ -79,10 +79,10 @@ def creategraph(d, count, matrix):
   f.view()
 
 if __name__ == "__main__":
+  print("This that starting prompt")
   x = input("No. of Inputs : ")
   x = int(x)
   m, count, arr = do(x)
   print(m)
   d = createcod(m, count, arr)
   creategraph(d, count, m)
-
